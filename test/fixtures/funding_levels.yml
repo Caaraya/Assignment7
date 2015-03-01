@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_id: 
+  reward_name: MyString
+  amount: 1
+
+two:
+  project_id: 
+  reward_name: MyString
+  amount: 1
