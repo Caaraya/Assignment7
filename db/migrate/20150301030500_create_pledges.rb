@@ -5,7 +5,7 @@ class CreatePledges < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.integer :amount
-
+	  t.references :funding_level
       t.timestamps null: false
     end
     add_foreign_key :pledges, :projects
