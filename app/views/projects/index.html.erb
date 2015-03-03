@@ -1,0 +1,13 @@
+<h1>List of Projects </h1>
+
+<p><%= link_to 'New project', new_project_path %></p>
+
+<% @projects.each do |project| %>
+<h2>
+<%= link_to(project.name, {:controller => "projects", :action => "show", :id => project.id}) %>
+</h2>
+<h3>Description : </h3>
+<p>
+<%= simple_format(project.description)%>
+</p>
+<% end %>

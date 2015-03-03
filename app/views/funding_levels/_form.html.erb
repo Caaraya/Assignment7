@@ -1,0 +1,24 @@
+<%= form_for @funding_level, url: projects_path do |f| %>
+  <% if @funding_level.errors.any? %>
+    <div class='errors'>
+      <h2>Uh oh, errors!</h2>
+      <% @funding_level.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class='field'>
+    <%= f.label :reward_name %>
+    <%= f.text_field :reward_name %>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :amount %>
+    <%= f.number_field :amount %>
+  </div>
+  
+  <div class='field'>
+    <%= f.submit 'Save' %>
+  </div>
+<% end %>

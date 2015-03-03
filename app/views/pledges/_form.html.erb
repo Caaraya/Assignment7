@@ -1,0 +1,30 @@
+<%= form_for @pledge, url: projects_path do |f| %>
+  <% if @pledge.errors.any? %>
+    <div class='errors'>
+      <h2>Uh oh, errors!</h2>
+      <% @pledge.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    </div>
+  <% end %>
+  
+  <div class='field'>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  
+    <div class='field'>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :amount %>
+    <%= f.number_field :amount %>
+  </div>
+
+  <div class='field'>
+    <%= f.submit 'Save' %>
+  </div>
+  
+ <% end %>
