@@ -1,4 +1,4 @@
-<%= form_for @funding_level, url: projects_path do |f| %>
+<%= form_for @funding_level, url: {action: 'create'} do |f| %>
   <% if @funding_level.errors.any? %>
     <div class='errors'>
       <h2>Uh oh, errors!</h2>

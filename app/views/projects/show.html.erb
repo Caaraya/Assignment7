@@ -2,7 +2,7 @@
 <h2>Description</h2>
 <h4><%= @project.description %></h4>
 <p>
-<% @project.funding_levels.each do |level|%></p>
+<% @project.funding_levels.order(:amount).each do |level|%></p>
 <h3><%= level.reward_name %></h3>
 <p> Amount : <%= level.amount %></p>
 <%end%>
@@ -10,13 +10,11 @@
 <p><%= link_to 'New Funding Level', new_project_funding_level_path(@project) %></p>
 
 <p>
-<% @project.pledges.each do |pledge|%></p>
-<h2><%= pledge.name %>
-</h2>
-<p> Name : <%= pledge.name %></p>
-<p> Email : <%= pledge.email %></p>
-<p> Amount : <%= pledge.amount %></p>
-<%end%>
+<% @project.funding_levels.each do |fl|
+		Pledge.where(:funding_level_id => fl.id).each do |pledge| %>
+			<%= pledge.name %>: $<%= pledge.amount %>, <%= pledge.email %> - <%= fl.reward_name %><br>
+	<% end
+end %></p>
 
 
 <p><%= link_to 'New Pledge', new_project_pledge_path(@project) %></p>
